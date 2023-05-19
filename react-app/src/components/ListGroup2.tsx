@@ -1,37 +1,30 @@
 import React from 'react'
-import { MouseEvent } from "react";
+import {useState } from 'react';
+
+
+// 1. managing state
 
 const ListGroup2 = () => {
 
     const items = ["New York", "Tokyo", "London"];
-    //items = [];
-  
-    /* 2
-    const getMessage = () => {
-      items.length === 0 ? <p>no item found</p> : null;
-    };*/
-  
-    // 3
-    const handleClick = (e : MouseEvent) => console.log(e); //e.properties
-  
+
+    const [selectedIndex, setSelectedIndex] = useState(-1);
+    
     return (
       <>
         <h1>List 2</h1>
-  
-        {/* 2 */}
-        {/*getMessage*/}
         {items.length === 0 && <p>no item found</p>}
   
         <ul className="list-group">
-          {/* 1 */}
           {items.map((item, index) => (
             <li
-              className="list-group-item"
+              className= {
+                selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+              }
               key={item}
-              // onClick={() => console.log(item, "(item)", index, "(item index)")}
-              
-              // 3
-              onClick={handleClick}
+              onClick={() => { setSelectedIndex(index)}}
             >
               {item}
             </li>
