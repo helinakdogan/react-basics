@@ -1,18 +1,25 @@
 import React from 'react'
 import {useState } from 'react';
 
-
 // 1. managing state
+// 2. passing data via props
 
-const ListGroup2 = () => {
 
-    const items = ["New York", "Tokyo", "London"];
+// 2
+interface Props {
+  items: string[];
+  heading: string;
+}
 
+// 2
+const ListGroup2 = ( { items, heading} : Props) => {
+
+    // 1
     const [selectedIndex, setSelectedIndex] = useState(-1);
     
     return (
       <>
-        <h1>List 2</h1>
+        <h1>{heading}</h1>
         {items.length === 0 && <p>no item found</p>}
   
         <ul className="list-group">
@@ -24,6 +31,7 @@ const ListGroup2 = () => {
                 : "list-group-item"
               }
               key={item}
+              // 1
               onClick={() => { setSelectedIndex(index)}}
             >
               {item}
