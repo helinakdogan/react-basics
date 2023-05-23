@@ -1,6 +1,7 @@
 import React from "react";
 import { MouseEvent } from "react";
 
+
 // 1. mapping for array
 // 2. conditional rendering
 // 3. handling events
